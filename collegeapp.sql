@@ -1,4 +1,3 @@
-
 CREATE TABLE student (student_id INT NOT NULL,
                       student_name VARCHAR (225),
                       birthday DATE,
@@ -21,6 +20,14 @@ CREATE TABLE building  (building_id INT NOT NULL,
                         PRIMARY KEY (building_id))
 ;
 
+CREATE TABLE room (room_id INT NOT NULL,
+                   capacity INT,
+                   room_number INT,
+                   building_id INT,
+                   PRIMARY KEY (room_id),
+                   FOREIGN KEY (building_id) REFERENCES building(building_id))
+;
+
 CREATE TABLE course (course_id INT NOT NULL,
                      room_id int NOT NULL,
                      name VARCHAR (225),
@@ -30,6 +37,7 @@ CREATE TABLE course (course_id INT NOT NULL,
                      FOREIGN KEY (room_id) REFERENCES room (room_id)
 
 );
+
 CREATE TABLE book (book_id INT NOT NULL,
                    book_name INT,
                    edition INT,
@@ -39,13 +47,7 @@ CREATE TABLE book (book_id INT NOT NULL,
                    PRIMARY KEY (book_id),
                    FOREIGN KEY (course_id) REFERENCES course(course_id))
 ;
-CREATE TABLE room (room_id INT NOT NULL,
-                   capacity INT,
-                   room_number INT,
-                   building_id INT,
-                   PRIMARY KEY (room_id),
-                   FOREIGN KEY (building_id) REFERENCES building(building_id))
-;
+
 CREATE TABLE professorcourse ( professor_course_id INT NOT NULL,
                                professor_id INT,
                                course_id INT,
