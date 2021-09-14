@@ -15,6 +15,9 @@ public class ProfessorService {
 
    public List<ProfessorDAO> getAllProfessorData() {
 
+       System.out.println("service layer is now executing-2");
+
+
         return professorBL.getProfessorDAOList();
     }
 

@@ -14,6 +14,9 @@ public class ProfessorRepository {
 
     public List<ProfessorDAO> getProfessorDAOList() {
 
+        System.out.println("now in reo layer fetching data-4");
+
+        // initializing two variables
         Connection conn = null;
         List<ProfessorDAO> professorDAOList = new ArrayList<>();
 

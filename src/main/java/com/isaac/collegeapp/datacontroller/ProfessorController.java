@@ -1,4 +1,4 @@
-package com.isaac.collegeapp.controller;
+package com.isaac.collegeapp.datacontroller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

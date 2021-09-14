@@ -21,6 +21,8 @@ public class ProfessorBusinessLogicImpl implements ProfessorBL{
 
     @Override
     public List<ProfessorDAO> getProfessorDAOList() {
+        System.out.println("business logic imp is executing -3");
+
         return professorRepository.getProfessorDAOList();
     }
 
