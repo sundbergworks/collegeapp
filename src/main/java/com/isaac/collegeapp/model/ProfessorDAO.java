@@ -4,11 +4,14 @@ import java.sql.Date;
 
 public class ProfessorDAO {
 
+    // These are your data attributes for the model object
+    // Step 1)
     Integer professor_id;
     String professor_name;
     Date hire_date;
     Integer has_phd;
 
+    // below here are the getters and setters
     public Integer getProfessor_id() {
         return professor_id;
     }

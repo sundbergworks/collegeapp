@@ -30,7 +30,7 @@ CREATE TABLE room (room_id INT NOT NULL,
 
 CREATE TABLE course (course_id INT NOT NULL,
                      room_id int NOT NULL,
-                     name VARCHAR (225),
+                     course_name VARCHAR (225),
                      creds INT,
                      description VARCHAR (225),
                      PRIMARY KEY (course_id),

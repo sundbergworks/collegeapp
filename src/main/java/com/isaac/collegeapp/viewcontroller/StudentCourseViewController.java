@@ -1,31 +1,30 @@
 package com.isaac.collegeapp.viewcontroller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.isaac.collegeapp.service.ProfessorService;
+import com.isaac.collegeapp.service.StudentCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("/professorView")
+@RequestMapping("/studentCourseView")
 @Controller
-public class ProfessorViewController {
+public class StudentCourseViewController {
 
     @Autowired
-    ProfessorService professorService;
+    StudentCourseService studentCourseService;
 
     ObjectMapper objectMapper = new ObjectMapper();
 
 
 
-    @GetMapping("/viewProfessors")
+    @GetMapping("/viewStudentCourse")
     String viewProfessors(Model model){
 
-        model.addAttribute("professors", professorService.getAllProfessorData());
-        return "viewProfessors.html";
+        model.addAttribute("studentCourse", studentCourseService.getAllStudentCourseData());
+        return "viewStudentCourse.html";
     }
 
 
