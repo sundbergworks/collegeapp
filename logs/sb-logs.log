@@ -1,0 +1,120 @@
+2021-09-22 11:12:31.078  INFO 5340 --- [main] c.i.collegeapp.CollegeappApplication     : Starting CollegeappApplication using Java 11.0.12 on DESKTOP-F9HK18R with PID 5340 (C:\Users\Admin\IdeaProjects\collegeapp\target\classes started by Admin in C:\Users\Admin\IdeaProjects\collegeapp)
+2021-09-22 11:12:31.082  INFO 5340 --- [main] c.i.collegeapp.CollegeappApplication     : No active profile set, falling back to default profiles: default
+2021-09-22 11:12:31.537  INFO 5340 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-09-22 11:12:31.541  INFO 5340 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-22 11:12:31.541  INFO 5340 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-22 11:12:31.578  INFO 5340 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2021-09-22 11:12:31.578  INFO 5340 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 460 ms
+2021-09-22 11:12:31.762  INFO 5340 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
+2021-09-22 11:12:31.770  INFO 5340 --- [main] c.i.collegeapp.CollegeappApplication     : Started CollegeappApplication in 0.937 seconds (JVM running for 1.333)
+2021-09-22 11:34:38.677  INFO 10936 --- [main] c.i.collegeapp.CollegeappApplication     : Starting CollegeappApplication using Java 11.0.12 on DESKTOP-F9HK18R with PID 10936 (C:\Users\Admin\IdeaProjects\collegeapp\target\classes started by Admin in C:\Users\Admin\IdeaProjects\collegeapp)
+2021-09-22 11:34:38.678  INFO 10936 --- [main] c.i.collegeapp.CollegeappApplication     : No active profile set, falling back to default profiles: default
+2021-09-22 11:34:39.115  INFO 10936 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-09-22 11:34:39.119  INFO 10936 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-22 11:34:39.119  INFO 10936 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-22 11:34:39.157  INFO 10936 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2021-09-22 11:34:39.157  INFO 10936 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 455 ms
+2021-09-22 11:34:39.342  INFO 10936 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
+2021-09-22 11:34:39.353  INFO 10936 --- [main] c.i.collegeapp.CollegeappApplication     : Started CollegeappApplication in 0.926 seconds (JVM running for 1.614)
+2021-09-22 13:04:54.282  INFO 972 --- [main] c.i.collegeapp.CollegeappApplication     : Starting CollegeappApplication using Java 11.0.12 on DESKTOP-F9HK18R with PID 972 (C:\Users\Admin\IdeaProjects\collegeapp\target\classes started by Admin in C:\Users\Admin\IdeaProjects\collegeapp)
+2021-09-22 13:04:54.283  INFO 972 --- [main] c.i.collegeapp.CollegeappApplication     : No active profile set, falling back to default profiles: default
+2021-09-22 13:04:54.716  INFO 972 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-09-22 13:04:54.720  INFO 972 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-22 13:04:54.720  INFO 972 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-22 13:04:54.755  INFO 972 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2021-09-22 13:04:54.756  INFO 972 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 449 ms
+2021-09-22 13:04:54.951  INFO 972 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
+2021-09-22 13:04:54.960  INFO 972 --- [main] c.i.collegeapp.CollegeappApplication     : Started CollegeappApplication in 0.871 seconds (JVM running for 1.239)
+2021-09-22 13:28:11.638  INFO 972 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-22 13:28:11.639  INFO 972 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-09-22 13:28:11.640  INFO 972 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-09-22 14:12:07.786  INFO 10792 --- [main] c.i.collegeapp.CollegeappApplication     : Starting CollegeappApplication using Java 11.0.12 on DESKTOP-F9HK18R with PID 10792 (C:\Users\Admin\IdeaProjects\collegeapp\target\classes started by Admin in C:\Users\Admin\IdeaProjects\collegeapp)
+2021-09-22 14:12:07.788  INFO 10792 --- [main] c.i.collegeapp.CollegeappApplication     : No active profile set, falling back to default profiles: default
+2021-09-22 14:12:08.227  INFO 10792 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-09-22 14:12:08.231  INFO 10792 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-22 14:12:08.232  INFO 10792 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-22 14:12:08.269  INFO 10792 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2021-09-22 14:12:08.270  INFO 10792 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 457 ms
+2021-09-22 14:12:08.464  INFO 10792 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
+2021-09-22 14:12:08.471  INFO 10792 --- [main] c.i.collegeapp.CollegeappApplication     : Started CollegeappApplication in 0.884 seconds (JVM running for 1.252)
+2021-09-22 14:12:54.817  INFO 10792 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-22 14:12:54.818  INFO 10792 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-09-22 14:12:54.818  INFO 10792 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2021-09-28 13:05:50.926  INFO 15796 --- [main] c.i.collegeapp.CollegeappApplication     : Starting CollegeappApplication using Java 11.0.12 on DESKTOP-F9HK18R with PID 15796 (C:\Users\Admin\IdeaProjects\collegeapp\target\classes started by Admin in C:\Users\Admin\IdeaProjects\collegeapp)
+2021-09-28 13:05:50.930  INFO 15796 --- [main] c.i.collegeapp.CollegeappApplication     : No active profile set, falling back to default profiles: default
+2021-09-28 13:05:51.449  INFO 15796 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-09-28 13:05:51.454  INFO 15796 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-28 13:05:51.454  INFO 15796 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-28 13:05:51.489  INFO 15796 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2021-09-28 13:05:51.489  INFO 15796 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 537 ms
+2021-09-28 13:05:51.657  WARN 15796 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2021-09-28 13:05:51.658  INFO 15796 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-09-28 13:05:51.668  INFO 15796 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-09-28 13:05:51.675 ERROR 15796 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2021-09-28 13:08:04.106  INFO 22400 --- [main] c.i.collegeapp.CollegeappApplication     : Starting CollegeappApplication using Java 11.0.12 on DESKTOP-F9HK18R with PID 22400 (C:\Users\Admin\IdeaProjects\collegeapp\target\classes started by Admin in C:\Users\Admin\IdeaProjects\collegeapp)
+2021-09-28 13:08:04.108  INFO 22400 --- [main] c.i.collegeapp.CollegeappApplication     : No active profile set, falling back to default profiles: default
+2021-09-28 13:08:04.863  INFO 22400 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-09-28 13:08:04.871  INFO 22400 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-28 13:08:04.871  INFO 22400 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-28 13:08:04.926  INFO 22400 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2021-09-28 13:08:04.927  INFO 22400 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 783 ms
+2021-09-28 13:08:05.192  WARN 22400 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2021-09-28 13:08:05.195  INFO 22400 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-09-28 13:08:05.205  INFO 22400 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-09-28 13:08:05.214 ERROR 22400 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2021-10-01 13:38:31.618  INFO 25332 --- [main] c.i.collegeapp.CollegeappApplication     : Starting CollegeappApplication using Java 11.0.12 on DESKTOP-F9HK18R with PID 25332 (C:\Users\Admin\IdeaProjects\collegeapp\target\classes started by Admin in C:\Users\Admin\IdeaProjects\collegeapp)
+2021-10-01 13:38:31.625  INFO 25332 --- [main] c.i.collegeapp.CollegeappApplication     : No active profile set, falling back to default profiles: default
+2021-10-01 13:38:32.370  INFO 25332 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-10-01 13:38:32.378  INFO 25332 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-01 13:38:32.378  INFO 25332 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-10-01 13:38:32.435  INFO 25332 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2021-10-01 13:38:32.436  INFO 25332 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 771 ms
+2021-10-01 13:38:32.738  WARN 25332 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2021-10-01 13:38:32.740  INFO 25332 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-10-01 13:38:32.753  INFO 25332 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-10-01 13:38:32.764 ERROR 25332 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
