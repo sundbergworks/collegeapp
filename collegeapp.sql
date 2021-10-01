@@ -28,11 +28,13 @@ CREATE TABLE room (room_id INT NOT NULL,
                    FOREIGN KEY (building_id) REFERENCES building(building_id))
 ;
 
+-- todo: you must edit this table and create a new column called "course_id_desc" that will be a VARCHAR and contain values like "MATH100, SCIENCE200", etc.
+-- todo cont.
 CREATE TABLE course (course_id INT NOT NULL,
                      room_id int NOT NULL,
                      course_name VARCHAR (225),
                      creds INT,
-                     description VARCHAR (225),
+                     course_id_desc VARCHAR (225),
                      PRIMARY KEY (course_id),
                      FOREIGN KEY (room_id) REFERENCES room (room_id)
 

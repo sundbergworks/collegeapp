@@ -26,12 +26,6 @@ public class BookViewController {
         return "viewBooks.html";
     }
 
-    @GetMapping("/viewRealEstate")
-    String viewRealEstate(){
-
-        return "viewRealEstate.html";
-    }
-
 
 
 

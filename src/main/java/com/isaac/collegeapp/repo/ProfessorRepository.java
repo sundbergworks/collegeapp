@@ -21,7 +21,7 @@ public class ProfessorRepository {
         List<ProfessorDAO> professorDAOList = new ArrayList<>();
 
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/collegeapp?user=root&password=password&useSSL=false");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/collegeapp?user=root&password=password&useSSL=false&allowPublicKeyRetrieval=true");
 
 
             // Do something with the Connection
