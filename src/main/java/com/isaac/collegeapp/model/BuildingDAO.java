@@ -10,7 +10,7 @@ public class BuildingDAO {
     String building_name;
     Date date_built;
     Integer capacity;
-    int coordinates;
+    String coordinates;
 
     public Integer getBuilding_id() {
         return building_id;
@@ -43,13 +43,13 @@ public class BuildingDAO {
     public void setCapacity(Integer capacity) {
         this.capacity = capacity;
     }
-
-    public int getCoordinates() {
+    public String getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(int coordinates) {
+    public void setCoordinates(String coordinates) {
         this.coordinates = coordinates;
     }
+
 
 }

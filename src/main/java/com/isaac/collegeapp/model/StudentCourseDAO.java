@@ -2,13 +2,16 @@ package com.isaac.collegeapp.model;
 
 public class StudentCourseDAO {
 
+
     // These are your data attributes for the model object
     // Step 1)
     Integer student_course_id;
-    int studentcourse_name;
+    Integer student_id;
     Integer course_id;
 
     // below here are the getters and setters
+
+
 
     public Integer getStudent_course_id() {
         return student_course_id;
@@ -18,12 +21,12 @@ public class StudentCourseDAO {
         this.student_course_id = student_course_id;
     }
 
-    public int getStudentcourse_name() {
-        return studentcourse_name;
+    public Integer getStudent_id() {
+        return student_id;
     }
 
-    public void setStudentcourse_name(int studentcourse_name) {
-        this.studentcourse_name = studentcourse_name;
+    public void setStudent_id(Integer student_id) {
+        this.student_id = student_id;
     }
 
     public Integer getCourse_id() {
@@ -33,9 +36,6 @@ public class StudentCourseDAO {
     public void setCourse_id(Integer course_id) {
         this.course_id = course_id;
     }
-
-
-
 
 
 }

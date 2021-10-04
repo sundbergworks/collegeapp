@@ -52,7 +52,7 @@ public class BuildingRepository {
                 buildingDAO.setBuilding_id(resultSet.getInt("building_id"));
                 buildingDAO.setBuilding_name(resultSet.getString("building_name"));
                 buildingDAO.setDate_built(resultSet.getDate("date_built"));
-                buildingDAO.setCoordinates(resultSet.getInt("coordinates"));
+                buildingDAO.setCoordinates(resultSet.getString("coordinates"));
                 buildingDAO.setCapacity(resultSet.getInt("capacity"));
                 buildingDAOList.add(buildingDAO);
             }

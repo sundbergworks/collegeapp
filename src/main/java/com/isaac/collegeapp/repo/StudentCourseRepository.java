@@ -49,9 +49,9 @@ public class StudentCourseRepository {
             while(resultSet.next()) {
 
                 StudentCourseDAO studentcourseDAO=new StudentCourseDAO();
-                studentcourseDAO.setStudent_course_id(resultSet.getInt("studentcourse_id"));
-                studentcourseDAO.setStudentcourse_name(resultSet.getInt("course_name"));
-                studentcourseDAO.setStudent_course_id(resultSet.getInt("Student_course_id"));
+                studentcourseDAO.setStudent_course_id(resultSet.getInt("student_course_id"));
+                studentcourseDAO.setCourse_id(resultSet.getInt("course_id"));
+                studentcourseDAO.setStudent_id(resultSet.getInt("student_id"));
                 studentcourseDAOList.add(studentcourseDAO);
             }
         } catch (SQLException ex ) {
