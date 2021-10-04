@@ -13,6 +13,6 @@ public interface RoomBL {
    public RoomDAO getRoomById(Integer roomid);
    public  RoomDAO updateRoom(RoomDAO roomDAO);
    public  RoomDAO deleteRoom(RoomDAO roomDAO);
-   public RoomDAO createRoom(RoomDAO roomDAO);
+   public String createRoom(RoomDAO roomDAO);
 
 }

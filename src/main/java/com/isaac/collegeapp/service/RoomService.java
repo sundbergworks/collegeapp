@@ -21,4 +21,13 @@ public class RoomService {
         return roomBL.getRoomDAOList();
     }
 
+
+    public String createRoom(RoomDAO roomDAO) {
+
+        System.out.println("service layer is now executing-2");
+
+
+        return roomBL.createRoom(roomDAO);
+    }
 }
+

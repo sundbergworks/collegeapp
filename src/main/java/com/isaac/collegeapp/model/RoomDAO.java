@@ -6,9 +6,12 @@ public class RoomDAO {
     // These are your data attributes for the model object
     // Step 1)
     Integer room_id;
-    String capacity;
+    Integer capacity;
     Integer room_number;
     Integer building_id;
+
+
+
 
 
 
@@ -20,11 +23,11 @@ public class RoomDAO {
         this.room_id = room_id;
     }
 
-    public String getCapacity() {
+    public Integer getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(String capacity) {
+    public void setCapacity(Integer capacity) {
         this.capacity = capacity;
     }
 
@@ -43,12 +46,6 @@ public class RoomDAO {
     public void setBuilding_id(Integer building_id) {
         this.building_id = building_id;
     }
-
-
-
-
-
-
 
 
 

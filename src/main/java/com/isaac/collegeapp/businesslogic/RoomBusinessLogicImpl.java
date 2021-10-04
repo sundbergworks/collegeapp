@@ -42,7 +42,7 @@ public class RoomBusinessLogicImpl implements RoomBL{
     }
 
     @Override
-    public RoomDAO createRoom(RoomDAO roomDAO) {
-        return null;
+    public String createRoom(RoomDAO roomDAO) {
+        return roomRepository.createRoom(roomDAO);
     }
 }
