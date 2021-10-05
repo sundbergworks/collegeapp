@@ -1,5 +1,6 @@
 package com.isaac.collegeapp.repo;
 
+import com.isaac.collegeapp.model.RoomDAO;
 import com.isaac.collegeapp.model.StudentDAO;
 import org.springframework.stereotype.Component;
 
@@ -10,6 +11,53 @@ import java.util.List;
 @Component
 public class StudentRepository {
 
+
+    public String createStudent(StudentDAO studentDAO){
+        Connection conn = null;
+        int existingMaxPrimaryKey = 0;
+
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/collegeapp?user=root&password=password&useSSL=false");
+
+
+
+            // execute sql query to get the max id so we can increment primary key
+            String getprimarykeymax = "SELECT MAX(STUDENT_ID) as student_id_max FROM STUDENT;";
+            PreparedStatement getPrimaryKeyStatement = conn.prepareStatement(getprimarykeymax);
+            ResultSet primaryKeyResult = getPrimaryKeyStatement.executeQuery();
+            while(primaryKeyResult.next()){
+                existingMaxPrimaryKey = primaryKeyResult.getInt("student_id_max");
+            }
+
+
+
+
+            String sql = "INSERT INTO Student (student_id, student_name,birthday,student_id_number) VALUES (?, ?, ?, ?)";
+            // INSERT INTO student (student_id, student_name,birthday,student_id_number) VALUES ('1', '20', '102', '1');
+
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, existingMaxPrimaryKey +1); // this probably gonna throw a null pointer becuase on create statements we dont use a PRIMARY KEY
+            statement.setString(2, studentDAO.getStudent_name());
+            statement.setDate(3, studentDAO.getBirthday());
+            statement.setInt(4, studentDAO.getStudent_id_number());
+
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("A new student was inserted successfully!");
+            }
+
+
+        } catch (Exception exception){
+
+            System.out.println("caught exception: "+exception.getMessage());
+            return "problem inserting student: "+exception.getMessage();
+
+        }
+
+
+        return "success";
+
+    }
 
 
     public List<StudentDAO> getStudentDAOList() {

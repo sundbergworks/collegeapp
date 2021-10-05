@@ -13,6 +13,6 @@ public interface StudentBL {
    public StudentDAO getStudentById(Integer studentid);
    public  StudentDAO updateStudent(StudentDAO studentDAO);
    public  StudentDAO deleteStudent(StudentDAO studentDAO);
-   public StudentDAO createStudent(StudentDAO studentDAO);
+   public String createStudent(StudentDAO studentDAO);
 
 }

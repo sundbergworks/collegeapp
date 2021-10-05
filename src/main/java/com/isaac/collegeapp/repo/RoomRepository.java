@@ -13,7 +13,6 @@ public class RoomRepository {
 
     public String createRoom(RoomDAO roomDAO){
         Connection conn = null;
-        RoomDAO returnObject =new RoomDAO();
         int existingMaxPrimaryKey = 0;
 
         try {
