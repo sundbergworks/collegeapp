@@ -1,6 +1,7 @@
 package com.isaac.collegeapp.repo;
 
 import com.isaac.collegeapp.model.ProfessorDAO;
+import com.isaac.collegeapp.model.RoomDAO;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
@@ -10,7 +11,50 @@ import java.util.List;
 @Component
 public class ProfessorRepository {
 
+    public String createProfessor(ProfessorDAO professorDAO){
+        Connection conn = null;
+        int existingMaxPrimaryKey = 0;
 
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/collegeapp?user=root&password=password&useSSL=false");
+
+
+
+            // execute sql query to get the max id so we can increment primary key
+            String getprimarykeymax = "SELECT MAX(PROFESSOR_ID) as professor_id_max FROM PROFESSOR;";
+            PreparedStatement getPrimaryKeyStatement = conn.prepareStatement(getprimarykeymax);
+            ResultSet primaryKeyResult = getPrimaryKeyStatement.executeQuery();
+            while(primaryKeyResult.next()){
+                existingMaxPrimaryKey = primaryKeyResult.getInt("professor_id_max");
+            }
+
+
+
+
+            String sql = "INSERT INTO Professor (professor_id, professor_name,hire_date,has_phd) VALUES (?, ?, ?, ?)";
+            // INSERT INTO professor (professor_id, professor_name,hire_date,has_phd) VALUES (106,'Mary Roth','2020/02/18',0);
+
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, existingMaxPrimaryKey +1); // this probably gonna throw a null pointer becuase on create statements we dont use a PRIMARY KEY
+            statement.setString(2, professorDAO.getProfessor_name());
+            statement.setDate(3, professorDAO.getHire_date());
+            statement.setInt(4, professorDAO.getHas_phd());
+
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("A new professor was inserted successfully!");
+            }
+
+
+        } catch (Exception exception){
+
+            System.out.println("caught exception: "+exception.getMessage());
+        }
+
+
+        return "success";
+
+    }
 
     public List<ProfessorDAO> getProfessorDAOList() {
 

@@ -45,4 +45,5 @@ public class ProfessorCourseBusinessLogicImpl implements ProfessorCourseBL{
     public ProfessorCourseDAO createProfessorCourse(ProfessorCourseDAO professorcourseDAO) {
         return null;
     }
+
 }

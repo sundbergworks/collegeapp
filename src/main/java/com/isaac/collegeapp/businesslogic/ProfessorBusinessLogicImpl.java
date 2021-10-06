@@ -1,6 +1,7 @@
 package com.isaac.collegeapp.businesslogic;
 
 import com.isaac.collegeapp.model.ProfessorDAO;
+import com.isaac.collegeapp.model.RoomDAO;
 import com.isaac.collegeapp.repo.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -42,7 +43,17 @@ public class ProfessorBusinessLogicImpl implements ProfessorBL{
     }
 
     @Override
-    public ProfessorDAO createProfessor(ProfessorDAO professorDAO) {
-        return null;
+    public String createProfessor(ProfessorDAO professorDAO) {
+
+        if(professorDAO.getHas_phd().equals(1)){
+
+            return professorRepository.createProfessor(professorDAO);
+        } else {
+
+            return "professor must have phd, not inserting this record";
+        }
+
     }
+
+
 }
