@@ -13,6 +13,6 @@ public interface BookBL {
    public BookDAO getBookById(Integer bookid);
    public  BookDAO updateBook(BookDAO bookDAO);
    public  BookDAO deleteBook(BookDAO bookDAO);
-   public BookDAO createBook(BookDAO bookDAO);
+   public String createBook(BookDAO bookDAO);
 
 }

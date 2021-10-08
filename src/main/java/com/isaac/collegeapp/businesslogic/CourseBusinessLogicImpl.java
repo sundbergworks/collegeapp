@@ -42,7 +42,7 @@ public class CourseBusinessLogicImpl implements CourseBL{
     }
 
     @Override
-    public CourseDAO createCourse(CourseDAO courseDAO) {
-        return null;
+    public String createCourse(CourseDAO courseDAO) {
+        return courseRepository.createCourse(courseDAO);
     }
 }

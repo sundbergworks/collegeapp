@@ -13,6 +13,6 @@ public interface StudentCourseBL {
    public StudentCourseDAO getStudentCourseById(Integer studentcourseid);
    public  StudentCourseDAO updateStudentCourse(StudentCourseDAO studentcourseDAO);
    public  StudentCourseDAO deleteStudentCourse(StudentCourseDAO studentcourseDAO);
-   public StudentCourseDAO createStudentCourse(StudentCourseDAO studentcourseDAO);
+   public String createStudentCourse(StudentCourseDAO studentcourseDAO);
 
 }

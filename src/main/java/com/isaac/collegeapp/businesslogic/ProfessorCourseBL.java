@@ -13,6 +13,6 @@ public interface ProfessorCourseBL {
    public ProfessorCourseDAO getProfessorCourseById(Integer professorcourseid);
    public  ProfessorCourseDAO updateProfessorCourse(ProfessorCourseDAO professorcourseDAO);
    public  ProfessorCourseDAO deleteProfessorCourse(ProfessorCourseDAO professorcourseDAO);
-   public ProfessorCourseDAO createProfessorCourse(ProfessorCourseDAO professorcourseDAO);
+   public String createProfessorCourse(ProfessorCourseDAO professorcourseDAO);
 
 }

@@ -1,6 +1,7 @@
 package com.isaac.collegeapp.service;
 
 import com.isaac.collegeapp.businesslogic.StudentCourseBL;
+import com.isaac.collegeapp.model.RoomDAO;
 import com.isaac.collegeapp.model.StudentCourseDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,5 +21,14 @@ public class StudentCourseService {
 
         return studentcourseBL.getStudentCourseDAOList();
     }
+
+    public String createStudentCourse(StudentCourseDAO studentcourseDAO) {
+
+        System.out.println("service layer is now executing-2");
+
+
+        return studentcourseBL.createStudentCourse(studentcourseDAO);
+    }
+
 
 }

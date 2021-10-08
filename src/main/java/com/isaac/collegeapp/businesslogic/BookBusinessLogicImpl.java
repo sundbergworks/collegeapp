@@ -42,7 +42,7 @@ public class BookBusinessLogicImpl implements BookBL{
     }
 
     @Override
-    public BookDAO createBook(BookDAO bookDAO) {
-        return null;
+    public String createBook(BookDAO bookDAO) {
+        return bookRepository.createBook(bookDAO);
     }
 }

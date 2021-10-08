@@ -13,6 +13,6 @@ public interface CourseBL {
    public CourseDAO getCourseById(Integer courseid);
    public  CourseDAO updateCourse(CourseDAO courseDAO);
    public  CourseDAO deleteCourse(CourseDAO courseDAO);
-   public CourseDAO createCourse(CourseDAO courseDAO);
+   public String createCourse(CourseDAO courseDAO);
 
 }

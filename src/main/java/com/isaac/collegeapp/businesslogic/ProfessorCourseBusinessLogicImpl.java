@@ -42,8 +42,8 @@ public class ProfessorCourseBusinessLogicImpl implements ProfessorCourseBL{
     }
 
     @Override
-    public ProfessorCourseDAO createProfessorCourse(ProfessorCourseDAO professorcourseDAO) {
-        return null;
+    public String createProfessorCourse(ProfessorCourseDAO professorcourseDAO) {
+        return professorcourseRepository.createProfessorCourse(professorcourseDAO);
     }
 
 }

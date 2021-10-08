@@ -4,16 +4,16 @@ import java.sql.Date;
 
 public class CourseDAO {
 
+
+
+
     // These are your data attributes for the model object
     // Step 1)
     Integer course_id;
     Integer room_id;
     String course_name;
     Integer creds;
-    String description;
-
-
-    // below here are the getters and setters
+    String course_id_desc;
 
 
     public Integer getCourse_id() {
@@ -48,18 +48,13 @@ public class CourseDAO {
         this.creds = creds;
     }
 
-    public String getDescription() {
-        return description;
+    public String getCourse_id_desc() {
+        return course_id_desc;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCourse_id_desc(String course_id_desc) {
+        this.course_id_desc = course_id_desc;
     }
-
-
-
-
-   
 
 
 

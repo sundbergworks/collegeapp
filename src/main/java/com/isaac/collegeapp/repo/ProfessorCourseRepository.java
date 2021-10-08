@@ -1,6 +1,7 @@
 package com.isaac.collegeapp.repo;
 
 import com.isaac.collegeapp.model.ProfessorCourseDAO;
+import com.isaac.collegeapp.model.RoomDAO;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
@@ -13,6 +14,61 @@ public class ProfessorCourseRepository {
 
     // This is a class level variable because it was initialized outside of all the methods below
     String sticks = "stuff";
+
+    // does professorcourse need to be camel case?
+
+
+    public String createProfessorCourse(ProfessorCourseDAO professorourseDAO){
+        Connection conn = null;
+        int existingMaxPrimaryKey = 0;
+
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/collegeapp?user=root&password=password&useSSL=false");
+
+
+
+            // execute sql query to get the max id so we can increment primary key
+            String getprimarykeymax = "SELECT MAX(PROFESSOR_COURSE_ID) as professor_course_id_max FROM PROFESSORCOURSE;";
+            PreparedStatement getPrimaryKeyStatement = conn.prepareStatement(getprimarykeymax);
+            ResultSet primaryKeyResult = getPrimaryKeyStatement.executeQuery();
+            while(primaryKeyResult.next()){
+                existingMaxPrimaryKey = primaryKeyResult.getInt("professor_Course_id_max");
+            }
+
+
+
+
+            String sql = "INSERT INTO ProfessorCourse (professor_course_id, professor_id, course_id) VALUES (?, ?, ?)";
+            // INSERT INTO professorcourse (`professor_course_id`, `professor_id`, `course_id`) VALUES ('1', '106','3');
+
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, existingMaxPrimaryKey +1); // this probably gonna throw a null pointer becuase on create statements we dont use a PRIMARY KEY
+            statement.setInt(2, professorourseDAO.getProfessor_id());
+            statement.setInt(3, professorourseDAO.getCourse_id());
+
+
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("A new ProfessorCourse was inserted successfully!");
+            }
+
+
+        } catch (Exception exception){
+
+            System.out.println("caught exception: "+exception.getMessage());
+        }
+
+
+        return "success";
+
+    }
+
+
+
+
+
+
+
 
     public List<ProfessorCourseDAO> getProfessorCourseDAOList() {
 

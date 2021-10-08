@@ -13,6 +13,6 @@ public interface BuildingBL {
    public BuildingDAO getBuildingById(Integer buildingid);
    public  BuildingDAO updateBuilding(BuildingDAO buildingDAO);
    public  BuildingDAO deleteBuilding(BuildingDAO buildingDAO);
-   public BuildingDAO createBuilding(BuildingDAO buildingDAO);
+   public String createBuilding(BuildingDAO buildingDAO);
 
 }
