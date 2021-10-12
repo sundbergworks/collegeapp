@@ -1,7 +1,7 @@
 package com.isaac.collegeapp.repo;
 
 import com.isaac.collegeapp.model.BuildingDAO;
-import com.isaac.collegeapp.model.RoomDAO;
+import com.isaac.collegeapp.model.BuildingDAO;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
@@ -11,6 +11,51 @@ import java.util.List;
 @Component
 public class BuildingRepository {
 
+
+    public String updateBuilding(BuildingDAO buildingDAO){
+
+        Connection conn = null;
+        try{
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/collegeapp?user=root&password=password&useSSL=false");
+
+            String sql = "UPDATE building SET building_name= ?, date_built= ?, coordinates= ?, capacity= ? WHERE building_id = ?";
+
+
+//            (building_id INT NOT NULL,
+//                    building_name INT ,
+//                    date_built DATE,
+//                    coordinates VARCHAR (225) ,
+//                    capacity INT,
+//                    PRIMARY KEY (building_id))
+            ;
+
+
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1,  buildingDAO.getBuilding_name());
+            statement.setDate(2, buildingDAO.getDate_built());
+            statement.setString(3, buildingDAO.getCoordinates());
+            statement.setInt(4, buildingDAO.getCapacity());
+            statement.setInt(5, buildingDAO.getBuilding_id());
+
+
+
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("A new building was updated successfully!");
+            }
+
+        } catch(Exception exception){
+
+            System.out.println("caught exception: "+exception.getMessage());
+
+            return "problem updating building: " +exception.getMessage();
+
+        }
+
+        return"success updating building";
+
+    }
+    
 
     public String createBuilding(BuildingDAO buildingDAO){
         Connection conn = null;
@@ -44,7 +89,7 @@ public class BuildingRepository {
 
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
-                System.out.println("A new room was inserted successfully!");
+                System.out.println("A new building was inserted successfully!");
             }
 
 

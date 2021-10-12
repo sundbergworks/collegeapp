@@ -29,5 +29,13 @@ public class RoomService {
 
         return roomBL.createRoom(roomDAO);
     }
+
+    public String updateRoom(RoomDAO roomDAO) {
+
+        System.out.println("service layer is now executing-2");
+
+
+        return roomBL.updateRoom(roomDAO);
+    }
 }
 

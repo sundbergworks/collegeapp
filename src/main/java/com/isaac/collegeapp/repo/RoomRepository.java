@@ -11,6 +11,52 @@ import java.util.List;
 public class RoomRepository {
 
 
+
+
+
+
+    public String updateRoom(RoomDAO roomDAO){
+
+        Connection conn = null;
+        try{
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/collegeapp?user=root&password=password&useSSL=false");
+
+            String sql = "UPDATE room SET capacity= ?, room_number= ?, building_id= ? WHERE room_id = ?";
+
+
+//            UPDATE room
+//            SET
+//                    capacity = 35,
+//                    room_number = 47,
+//                    building_id = 4
+//            WHERE
+//                    room_id = 7;
+
+
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1,  roomDAO.getCapacity());
+            statement.setInt(2, roomDAO.getRoom_number());
+            statement.setInt(3, roomDAO.getBuilding_id());
+            statement.setInt(4, roomDAO.getRoom_id());
+
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("A new room was updated successfully!");
+            }
+
+        } catch(Exception exception){
+
+            System.out.println("caught exception: "+exception.getMessage());
+
+            return "problem updating room: " +exception.getMessage();
+
+        }
+
+        return"success updating room";
+
+    }
+
+
     public String createRoom(RoomDAO roomDAO){
         Connection conn = null;
         int existingMaxPrimaryKey = 0;

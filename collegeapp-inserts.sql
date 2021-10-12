@@ -76,4 +76,13 @@ INSERT INTO professorcourse (`professor_course_id`, `professor_id`, `course_id`)
 INSERT INTO professorcourse (`professor_course_id`, `professor_id`, `course_id`) VALUES ('15','102','2');
 
 
+-- sample update statements below
+UPDATE room
+SET
+    capacity = 35,
+    room_number = 47,
+    building_id = 4
+WHERE
+   room_id = 7;
+
 

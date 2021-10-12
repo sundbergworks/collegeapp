@@ -12,6 +12,48 @@ import java.util.List;
 public class StudentRepository {
 
 
+
+
+    public String updateStudent(StudentDAO studentDAO){
+
+        Connection conn = null;
+        try{
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/collegeapp?user=root&password=password&useSSL=false");
+
+            String sql = "UPDATE student SET student_name= ?, birthday= ?, student_id_number= ? WHERE student_id = ?";
+
+
+//            student (student_id INT NOT NULL,
+//                    student_name VARCHAR (225),
+//                    birthday DATE,
+//                    student_id_number INT,
+//                    PRIMARY KEY (student_id))
+
+
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, studentDAO.getStudent_name());
+            statement.setDate(2, studentDAO.getBirthday());
+            statement.setInt(3, studentDAO.getStudent_id_number());
+            statement.setInt(4, studentDAO.getStudent_id());
+
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("A new student was updated successfully!");
+            }
+
+        } catch(Exception exception){
+
+            System.out.println("caught exception: "+exception.getMessage());
+
+            return "problem updating student: " +exception.getMessage();
+
+        }
+
+        return"success updating student";
+
+    }
+
+
     public String createStudent(StudentDAO studentDAO){
         Connection conn = null;
         int existingMaxPrimaryKey = 0;

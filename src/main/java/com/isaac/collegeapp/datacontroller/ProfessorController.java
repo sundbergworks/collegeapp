@@ -35,4 +35,16 @@ public class ProfessorController {
 
     }
 
+    @PostMapping ("/update")
+    String updateProfessor(@RequestBody String professor) throws JsonProcessingException {
+
+        ProfessorDAO professorDAO = objectMapper.readValue(professor,ProfessorDAO.class);
+
+        String result = professorService.updateProfessor(professorDAO);
+
+        return result;
+    }
+
+
+
 }

@@ -31,5 +31,13 @@ public class ProfessorService {
 
         return professorBL.createProfessor(professorDAO);
     }
+    public String updateProfessor(ProfessorDAO professorDAO) {
+
+        System.out.println("service layer is now executing-2");
+
+
+        return professorBL.updateProfessor(professorDAO);
+    }
+
 
 }

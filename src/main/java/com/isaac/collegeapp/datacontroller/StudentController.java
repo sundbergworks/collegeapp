@@ -35,5 +35,14 @@ public class StudentController {
 
     }
 
+    @PostMapping ("/update")
+    String updateStudent(@RequestBody String student) throws JsonProcessingException {
+
+        StudentDAO studentDAO = objectMapper.readValue(student,StudentDAO.class);
+
+        String result =studentService.updateStudent(studentDAO);
+
+        return result;
+    }
 
 }

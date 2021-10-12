@@ -1,5 +1,6 @@
 package com.isaac.collegeapp.businesslogic;
 
+
 import com.isaac.collegeapp.model.StudentDAO;
 import com.isaac.collegeapp.repo.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,8 @@ public class StudentBusinessLogicImpl implements StudentBL{
     }
 
     @Override
-    public StudentDAO updateStudent(StudentDAO studentDAO) {
-        return null;
+    public String updateStudent(StudentDAO studentDAO) {
+        return studentRepository.createStudent(studentDAO);
     }
 
     @Override
@@ -45,4 +46,6 @@ public class StudentBusinessLogicImpl implements StudentBL{
     public String createStudent(StudentDAO studentDAO) {
         return studentRepository.createStudent(studentDAO);
     }
+
+
 }

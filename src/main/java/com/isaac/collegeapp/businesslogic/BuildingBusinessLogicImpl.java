@@ -32,8 +32,8 @@ public class BuildingBusinessLogicImpl implements BuildingBL{
     }
 
     @Override
-    public BuildingDAO updateBuilding(BuildingDAO buildingDAO) {
-        return null;
+    public String updateBuilding(BuildingDAO buildingDAO) {
+        return buildingRepository.updateBuilding(buildingDAO);
     }
 
     @Override

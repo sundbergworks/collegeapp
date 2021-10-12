@@ -35,5 +35,15 @@ public class RoomController {
 
     }
 
+    @PostMapping ("/update")
+    String updateRoom(@RequestBody String room) throws JsonProcessingException {
 
-}
+        RoomDAO roomDAO = objectMapper.readValue(room, RoomDAO.class);
+
+        String result = roomService.updateRoom(roomDAO);
+
+        return result;
+    }
+
+
+    }

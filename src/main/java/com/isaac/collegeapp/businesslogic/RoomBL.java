@@ -11,7 +11,7 @@ public interface RoomBL {
    public List<RoomDAO> filterPhdRooms (List<RoomDAO> roomDAOList);
    public List<RoomDAO> getRoomDAOList ();
    public RoomDAO getRoomById(Integer roomid);
-   public  RoomDAO updateRoom(RoomDAO roomDAO);
+   public  String updateRoom(RoomDAO roomDAO);
    public  RoomDAO deleteRoom(RoomDAO roomDAO);
    public String createRoom(RoomDAO roomDAO);
 

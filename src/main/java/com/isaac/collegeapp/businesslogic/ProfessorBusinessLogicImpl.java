@@ -33,8 +33,8 @@ public class ProfessorBusinessLogicImpl implements ProfessorBL{
     }
 
     @Override
-    public ProfessorDAO updateProfessor(ProfessorDAO professorDAO) {
-        return null;
+    public String updateProfessor(ProfessorDAO professorDAO) {
+        return professorRepository.updateProfessor(professorDAO);
     }
 
     @Override

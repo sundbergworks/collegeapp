@@ -11,7 +11,7 @@ public interface BuildingBL {
    public List<BuildingDAO> filterPhdBuildings (List<BuildingDAO> buildingDAOList);
    public List<BuildingDAO> getBuildingDAOList ();
    public BuildingDAO getBuildingById(Integer buildingid);
-   public  BuildingDAO updateBuilding(BuildingDAO buildingDAO);
+   public  String updateBuilding(BuildingDAO buildingDAO);
    public  BuildingDAO deleteBuilding(BuildingDAO buildingDAO);
    public String createBuilding(BuildingDAO buildingDAO);
 

@@ -11,6 +11,55 @@ import java.util.List;
 @Component
 public class ProfessorRepository {
 
+
+
+    public String updateProfessor(ProfessorDAO professorDAO){
+
+        Connection conn = null;
+        try{
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/collegeapp?user=root&password=password&useSSL=false");
+
+            String sql = "UPDATE professor SET professor_name= ?, hire_date= ?, has_phd= ? WHERE professor_id= ?";
+
+
+//            UPDATE room
+//            SET
+//                    capacity = 35,
+//                    room_number = 47,
+//                    building_id = 4
+//            WHERE
+//                    room_id = 7;
+
+//            professor_id INT NOT NULL,
+//            professor_name VARCHAR(225),
+//                    hire_date DATE ,
+//                    has_phd INT,
+//                    PRIMARY KEY  (professor_id))
+
+
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, professorDAO.getProfessor_name());
+            statement.setDate(2, professorDAO.getHire_date());
+            statement.setInt(3, professorDAO.getHas_phd());
+            statement.setInt(4, professorDAO.getProfessor_id());
+
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("A new professor was updated successfully!");
+            }
+
+        } catch(Exception exception){
+
+            System.out.println("caught exception: "+exception.getMessage());
+
+            return "problem updating professor: " +exception.getMessage();
+
+        }
+
+        return"success updating professor";
+
+    }
+
     public String createProfessor(ProfessorDAO professorDAO){
         Connection conn = null;
         int existingMaxPrimaryKey = 0;

@@ -11,7 +11,7 @@ public interface StudentBL {
    public List<StudentDAO> filterPhdStudents (List<StudentDAO> studentDAOList);
    public List<StudentDAO> getStudentDAOList ();
    public StudentDAO getStudentById(Integer studentid);
-   public  StudentDAO updateStudent(StudentDAO studentDAO);
+   public String updateStudent(StudentDAO studentDAO);
    public  StudentDAO deleteStudent(StudentDAO studentDAO);
    public String createStudent(StudentDAO studentDAO);
 

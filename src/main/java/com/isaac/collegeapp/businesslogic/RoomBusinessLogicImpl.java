@@ -32,8 +32,9 @@ public class RoomBusinessLogicImpl implements RoomBL{
     }
 
     @Override
-    public RoomDAO updateRoom(RoomDAO roomDAO) {
-        return null;
+    public String updateRoom(RoomDAO roomDAO) {
+        return roomRepository.updateRoom(roomDAO);
+
     }
 
     @Override

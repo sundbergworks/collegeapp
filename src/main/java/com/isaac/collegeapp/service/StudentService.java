@@ -32,4 +32,13 @@ public class StudentService {
         return studentBL.createStudent(studentDAO);
     }
 
+    public String updateStudent(StudentDAO studentDAO) {
+
+        System.out.println("service layer is now executing-2");
+
+
+        return studentBL.updateStudent(studentDAO);
+    }
+
+
 }

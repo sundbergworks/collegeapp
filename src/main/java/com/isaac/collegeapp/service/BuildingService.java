@@ -2,7 +2,7 @@ package com.isaac.collegeapp.service;
 
 import com.isaac.collegeapp.businesslogic.BuildingBL;
 import com.isaac.collegeapp.model.BuildingDAO;
-import com.isaac.collegeapp.model.RoomDAO;
+import com.isaac.collegeapp.model.BuildingDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -28,6 +28,12 @@ public class BuildingService {
 
         return buildingBL.createBuilding(buildingDAO);
     }
+    public String updateBuilding(BuildingDAO buildingDAO) {
 
+        System.out.println("service layer is now executing-2");
+
+
+        return buildingBL.updateBuilding(buildingDAO);
+    }
 
 }
