@@ -11,7 +11,7 @@ public interface ProfessorCourseBL {
    public List<ProfessorCourseDAO> filterPhdProfessorCourses (List<ProfessorCourseDAO> professorcourseDAOList);
    public List<ProfessorCourseDAO> getProfessorCourseDAOList ();
    public ProfessorCourseDAO getProfessorCourseById(Integer professorcourseid);
-   public  ProfessorCourseDAO updateProfessorCourse(ProfessorCourseDAO professorcourseDAO);
+   public  String updateProfessorCourse(ProfessorCourseDAO professorcourseDAO);
    public  ProfessorCourseDAO deleteProfessorCourse(ProfessorCourseDAO professorcourseDAO);
    public String createProfessorCourse(ProfessorCourseDAO professorcourseDAO);
 

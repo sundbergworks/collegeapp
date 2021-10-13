@@ -1,7 +1,7 @@
 package com.isaac.collegeapp.repo;
 
 import com.isaac.collegeapp.model.BookDAO;
-import com.isaac.collegeapp.model.RoomDAO;
+import com.isaac.collegeapp.model.BookDAO;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
@@ -11,6 +11,52 @@ import java.util.List;
 @Component
 public class BookRepository {
 
+
+
+
+
+    public String updateBook(BookDAO bookDAO) {
+
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/collegeapp?user=root&password=password&useSSL=false");
+
+            String sql = "UPDATE book SET book_name= ?, edition= ?, author= ?, price= ?, course_id= ? WHERE book_id = ?";
+
+
+//            (book_id INT NOT NULL,
+//                    book_name INT,
+//                    edition INT,
+//                    author VARCHAR (225),
+//                    price DOUBLE,
+//                    course_id INT,
+
+
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(2, bookDAO.getBook_name());
+            statement.setString(3, bookDAO.getEdition());
+            statement.setString(4, bookDAO.getAuthor());
+            statement.setDouble(4, bookDAO.getPrice());
+            statement.setString(4, bookDAO.getCourse_id());
+            statement.setInt(4, bookDAO.getBook_id());
+
+
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("A new book was updated successfully!");
+            }
+
+        } catch (Exception exception) {
+
+            System.out.println("caught exception: " + exception.getMessage());
+
+            return "problem updating book: " + exception.getMessage();
+
+        }
+
+        return "success updating book";
+
+    }
     public String createBook(BookDAO bookDAO){
         Connection conn = null;
         int existingMaxPrimaryKey = 0;
@@ -44,7 +90,7 @@ public class BookRepository {
 
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
-                System.out.println("A new room was inserted successfully!");
+                System.out.println("A new book was inserted successfully!");
             }
 
 

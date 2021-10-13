@@ -1,6 +1,6 @@
 package com.isaac.collegeapp.repo;
 
-import com.isaac.collegeapp.model.RoomDAO;
+import com.isaac.collegeapp.model.StudentCourseDAO;
 import com.isaac.collegeapp.model.StudentCourseDAO;
 import org.springframework.stereotype.Component;
 
@@ -10,6 +10,42 @@ import java.util.List;
 
 @Component
 public class StudentCourseRepository {
+
+
+    public String updateStudentCourse(StudentCourseDAO studentcourseDAO) {
+
+
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/collegeapp?user=root&password=password&useSSL=false");
+
+            String sql = "UPDATE studentcourse SET course_id= ?, student_id= ? WHERE studentcourse_id = ?";
+
+
+//            student_course_id INT NOT NULL,
+//            course_id INT,
+//            student_id INT,
+
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(2, studentcourseDAO.getCourse_id());
+            statement.setInt(3, studentcourseDAO.getStudent_id());
+            statement.setInt(3, studentcourseDAO.getStudent_course_id());
+
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("A new studentcourse was updated successfully!");
+            }
+
+        } catch (Exception exception) {
+
+            System.out.println("caught exception: " + exception.getMessage());
+
+            return "problem updating studentcourse: " + exception.getMessage();
+
+        }
+
+        return "success updating studentcourse";
+    }
 
 
     public String createStudentCourse(StudentCourseDAO studentcourseDAO){

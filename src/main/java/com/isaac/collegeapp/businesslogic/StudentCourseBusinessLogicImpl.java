@@ -32,8 +32,8 @@ public class StudentCourseBusinessLogicImpl implements StudentCourseBL{
     }
 
     @Override
-    public StudentCourseDAO updateStudentCourse(StudentCourseDAO studentcourseDAO) {
-        return null;
+    public String updateStudentCourse(StudentCourseDAO studentcourseDAO) {
+        return studentcourseRepository.updateStudentCourse(studentcourseDAO);
     }
 
     @Override

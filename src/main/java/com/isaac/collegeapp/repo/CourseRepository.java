@@ -1,7 +1,7 @@
 package com.isaac.collegeapp.repo;
 
 import com.isaac.collegeapp.model.CourseDAO;
-import com.isaac.collegeapp.model.RoomDAO;
+import com.isaac.collegeapp.model.CourseDAO;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
@@ -10,6 +10,49 @@ import java.util.List;
 
 @Component
 public class CourseRepository {
+
+
+    public String updateCourse(CourseDAO courseDAO){
+
+        Connection conn = null;
+        try{
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/collegeapp?user=root&password=password&useSSL=false");
+
+            String sql = "UPDATE course SET capacity= ?, course_number= ?, building_id= ? WHERE course_id = ?";
+
+
+//            (course_id INT NOT NULL,
+//                    room_id int NOT NULL,
+//                    course_name VARCHAR (225),
+//                    creds INT,
+//                    course_id_desc VARCHAR (225),
+
+
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1,  courseDAO.getRoom_id());
+            statement.setString(2, courseDAO.getCourse_name());
+            statement.setInt(3, courseDAO.getCreds());
+            statement.setInt(4, courseDAO.getCourse_id());
+
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("A new course was updated successfully!");
+            }
+
+        } catch(Exception exception){
+
+            System.out.println("caught exception: "+exception.getMessage());
+
+            return "problem updating course: " +exception.getMessage();
+
+        }
+
+        return"success updating course";
+
+    }
+
+
+
 
     public String createCourse(CourseDAO courseDAO){
         Connection conn = null;
@@ -31,12 +74,12 @@ public class CourseRepository {
 
 
 
-            String sql = "INSERT INTO Course(course_id, room_id,course_name,creds,course_id_desc) VALUES (?, ?, ?, ?)";
-            // INSERT INTO course (course_id, room_id,course_name, creds,course_id_desc) VALUES (1, 7,'math',4,'Mathematics');
+            String sql = "INSERT INTO Course(course_id, course_id,course_name,creds,course_id_desc) VALUES (?, ?, ?, ?)";
+            // INSERT INTO course (course_id, course_id,course_name, creds,course_id_desc) VALUES (1, 7,'math',4,'Mathematics');
 
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setInt(1, existingMaxPrimaryKey +1); // this probably gonna throw a null pointer becuase on create statements we dont use a PRIMARY KEY
-            statement.setInt(2, courseDAO.getRoom_id());
+            statement.setInt(2, courseDAO.getCourse_id());
             statement.setString(3, courseDAO.getCourse_name());
             statement.setInt(4, courseDAO.getCreds());
             statement.setString(4, courseDAO.getCourse_id_desc());
@@ -96,7 +139,7 @@ public class CourseRepository {
                 CourseDAO courseDAO=new CourseDAO();
                 courseDAO.setCourse_id(resultSet.getInt("course_id"));
                 courseDAO.setCourse_name(resultSet.getString("course_name"));
-                courseDAO.setRoom_id(resultSet.getInt("room_id"));
+                courseDAO.setCourse_id(resultSet.getInt("course_id"));
                 courseDAO.setCreds(resultSet.getInt("creds"));
                 courseDAOList.add(courseDAO);
             }

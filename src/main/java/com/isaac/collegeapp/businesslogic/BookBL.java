@@ -11,7 +11,7 @@ public interface BookBL {
    public List<BookDAO> filterPhdBooks (List<BookDAO> bookDAOList);
    public List<BookDAO> getBookDAOList ();
    public BookDAO getBookById(Integer bookid);
-   public  BookDAO updateBook(BookDAO bookDAO);
+   public  String updateBook(BookDAO bookDAO);
    public  BookDAO deleteBook(BookDAO bookDAO);
    public String createBook(BookDAO bookDAO);
 

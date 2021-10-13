@@ -1,7 +1,7 @@
 package com.isaac.collegeapp.repo;
 
 import com.isaac.collegeapp.model.ProfessorCourseDAO;
-import com.isaac.collegeapp.model.RoomDAO;
+import com.isaac.collegeapp.model.ProfessorCourseDAO;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
@@ -18,7 +18,43 @@ public class ProfessorCourseRepository {
     // does professorcourse need to be camel case?
 
 
-    public String createProfessorCourse(ProfessorCourseDAO professorourseDAO){
+    public String updateProfessorCourse(ProfessorCourseDAO professorcourseDAO) {
+
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/collegeapp?user=root&password=password&useSSL=false");
+
+            String sql = "UPDATE professorcourse SET professor_id= ?, course_id= ? WHERE professor_course_id = ?";
+
+
+//            professor_course_id INT NOT NULL,
+//            professor_id INT,
+//            course_id INT,
+
+
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, professorcourseDAO.getProfessor_id());
+            statement.setInt(2, professorcourseDAO.getCourse_id());
+            statement.setInt(3, professorcourseDAO.getProfessor_course_id());
+
+
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("A new professorcourse was updated successfully!");
+            }
+
+        } catch (Exception exception) {
+
+            System.out.println("caught exception: " + exception.getMessage());
+
+            return "problem updating professorcourse: " + exception.getMessage();
+
+        }
+
+        return "success updating professorcourse";
+    }
+
+    public String createProfessorCourse(ProfessorCourseDAO professorcourseDAO){
         Connection conn = null;
         int existingMaxPrimaryKey = 0;
 
@@ -43,8 +79,8 @@ public class ProfessorCourseRepository {
 
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setInt(1, existingMaxPrimaryKey +1); // this probably gonna throw a null pointer becuase on create statements we dont use a PRIMARY KEY
-            statement.setInt(2, professorourseDAO.getProfessor_id());
-            statement.setInt(3, professorourseDAO.getCourse_id());
+            statement.setInt(2, professorcourseDAO.getProfessor_id());
+            statement.setInt(3, professorcourseDAO.getCourse_id());
 
 
             int rowsInserted = statement.executeUpdate();

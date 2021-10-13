@@ -11,7 +11,7 @@ public interface StudentCourseBL {
    public List<StudentCourseDAO> filterPhdStudentCourses (List<StudentCourseDAO> studentcourseDAOList);
    public List<StudentCourseDAO> getStudentCourseDAOList ();
    public StudentCourseDAO getStudentCourseById(Integer studentcourseid);
-   public  StudentCourseDAO updateStudentCourse(StudentCourseDAO studentcourseDAO);
+   public  String updateStudentCourse(StudentCourseDAO studentcourseDAO);
    public  StudentCourseDAO deleteStudentCourse(StudentCourseDAO studentcourseDAO);
    public String createStudentCourse(StudentCourseDAO studentcourseDAO);
 

@@ -32,8 +32,8 @@ public class BookBusinessLogicImpl implements BookBL{
     }
 
     @Override
-    public BookDAO updateBook(BookDAO bookDAO) {
-        return null;
+    public String updateBook(BookDAO bookDAO) {
+        return bookRepository.updateBook(bookDAO);
     }
 
     @Override

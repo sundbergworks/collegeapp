@@ -3,7 +3,7 @@ package com.isaac.collegeapp.datacontroller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.isaac.collegeapp.model.CourseDAO;
-import com.isaac.collegeapp.model.RoomDAO;
+import com.isaac.collegeapp.model.CourseDAO;
 import com.isaac.collegeapp.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -37,4 +37,14 @@ public class CourseController {
 
     }
 
+    @PostMapping ("/update")
+    String updateCourse(@RequestBody String course) throws JsonProcessingException {
+
+        CourseDAO courseDAO = objectMapper.readValue(course, CourseDAO.class);
+
+        String result = courseService.updateCourse(courseDAO);
+
+        return result;
+    }
+    
 }
