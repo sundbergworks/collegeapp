@@ -19,7 +19,9 @@ public class StudentCourseRepository {
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/collegeapp?user=root&password=password&useSSL=false");
 
-            String sql = "UPDATE studentcourse SET course_id= ?, student_id= ? WHERE studentcourse_id = ?";
+            String sql = "UPDATE studentcourse SET course_id= ?, student_id= ? WHERE student_course_id = ?";
+
+
 
 
 //            student_course_id INT NOT NULL,
@@ -27,8 +29,8 @@ public class StudentCourseRepository {
 //            student_id INT,
 
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setInt(2, studentcourseDAO.getCourse_id());
-            statement.setInt(3, studentcourseDAO.getStudent_id());
+            statement.setInt(1, studentcourseDAO.getCourse_id());
+            statement.setInt(2, studentcourseDAO.getStudent_id());
             statement.setInt(3, studentcourseDAO.getStudent_course_id());
 
             int rowsInserted = statement.executeUpdate();

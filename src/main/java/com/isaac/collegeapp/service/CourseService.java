@@ -37,5 +37,13 @@ public class CourseService {
 
         return courseBL.updateCourse(courseDAO);
     }
+
+    public String deleteCourse(CourseDAO courseDAO) {
+
+        System.out.println("service layer is now executing-2");
+
+
+        return courseBL.deleteCourse(courseDAO);
+    }
     
 }

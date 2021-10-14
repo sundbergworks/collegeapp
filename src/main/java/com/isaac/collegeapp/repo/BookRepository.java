@@ -33,12 +33,12 @@ public class BookRepository {
 
 
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(2, bookDAO.getBook_name());
-            statement.setString(3, bookDAO.getEdition());
-            statement.setString(4, bookDAO.getAuthor());
+            statement.setString(1, bookDAO.getBook_name());
+            statement.setString(2, bookDAO.getEdition());
+            statement.setString(3, bookDAO.getAuthor());
             statement.setDouble(4, bookDAO.getPrice());
-            statement.setString(4, bookDAO.getCourse_id());
-            statement.setInt(4, bookDAO.getBook_id());
+            statement.setString(5, bookDAO.getCourse_id());
+            statement.setInt(6, bookDAO.getBook_id());
 
 
             int rowsInserted = statement.executeUpdate();
@@ -85,8 +85,8 @@ public class BookRepository {
             statement.setString(2, bookDAO.getBook_name());
             statement.setString(3, bookDAO.getEdition());
             statement.setString(4, bookDAO.getAuthor());
-            statement.setDouble(4, bookDAO.getPrice());
-            statement.setString(4, bookDAO.getCourse_id());
+            statement.setDouble(5, bookDAO.getPrice());
+            statement.setString(6, bookDAO.getCourse_id());
 
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {

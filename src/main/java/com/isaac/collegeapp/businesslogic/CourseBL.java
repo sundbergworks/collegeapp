@@ -12,7 +12,7 @@ public interface CourseBL {
    public List<CourseDAO> getCourseDAOList ();
    public CourseDAO getCourseById(Integer courseid);
    public  String updateCourse(CourseDAO courseDAO);
-   public  CourseDAO deleteCourse(CourseDAO courseDAO);
+   public  String deleteCourse(CourseDAO courseDAO);
    public String createCourse(CourseDAO courseDAO);
 
 }

@@ -46,5 +46,15 @@ public class CourseController {
 
         return result;
     }
-    
+
+    @DeleteMapping ("/delete")
+    String deleteCourse(@RequestBody String course) throws JsonProcessingException {
+
+        CourseDAO courseDAO = objectMapper.readValue(course,CourseDAO.class);
+
+        String result = courseService.deleteCourse(courseDAO);
+
+        return result;
+    }
+
 }

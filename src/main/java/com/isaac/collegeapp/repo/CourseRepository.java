@@ -12,13 +12,69 @@ import java.util.List;
 public class CourseRepository {
 
 
+
+    public String deleteCourse(CourseDAO courseDAO){
+
+        Connection conn = null;
+        int book_id=0;
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/collegeapp?user=root&password=password&useSSL=false");
+
+
+//            // execute sql query to get the max id so we can increment primary key
+            String selectbooks = "SELECT * FROM book WHERE course_id = ?";
+            PreparedStatement selectBookStatement = conn.prepareStatement(selectbooks);
+            selectBookStatement.setInt(1, courseDAO.getCourse_id());
+            ResultSet primaryKeyResult = selectBookStatement.executeQuery();
+
+
+
+
+            while(primaryKeyResult.next()){
+                book_id = primaryKeyResult.getInt("book_id");
+                String deletebook = "DELETE FROM book WHERE book_id = ?";
+                PreparedStatement deletestatement = conn.prepareStatement(deletebook);
+                deletestatement.setInt(1, book_id);
+                int deleteresult = deletestatement.executeUpdate();
+
+            }
+
+
+
+           String sql = "DELETE FROM course WHERE course_id = ?";
+//            String sql = "ALTER TABLE book DROP FOREIGN KEY FK_course_id=?";
+//            String sql = "ALTER TABLE course ADD CONSTRAINT book_ibfk_1 FOREIGN KEY (course_id) REFERENCES book(course_id) ON DELETE course";
+
+
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, courseDAO.getCourse_id());
+
+
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("A course was deleted successfully!");
+            }
+
+        } catch(Exception exception){
+
+            System.out.println("caught exception: "+exception.getMessage());
+
+            return "problem deleting course: " +exception.getMessage();
+
+        }
+
+        return"success deleting course";
+
+    }
+
+
     public String updateCourse(CourseDAO courseDAO){
 
         Connection conn = null;
         try{
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/collegeapp?user=root&password=password&useSSL=false");
 
-            String sql = "UPDATE course SET capacity= ?, course_number= ?, building_id= ? WHERE course_id = ?";
+            String sql = "UPDATE course SET room_id= ?, course_name= ?, creds= ?, course_id_desc= ? WHERE course_id = ?";
 
 
 //            (course_id INT NOT NULL,
@@ -32,7 +88,8 @@ public class CourseRepository {
             statement.setInt(1,  courseDAO.getRoom_id());
             statement.setString(2, courseDAO.getCourse_name());
             statement.setInt(3, courseDAO.getCreds());
-            statement.setInt(4, courseDAO.getCourse_id());
+            statement.setString(4, courseDAO.getCourse_id_desc());
+            statement.setInt(5, courseDAO.getCourse_id());
 
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {

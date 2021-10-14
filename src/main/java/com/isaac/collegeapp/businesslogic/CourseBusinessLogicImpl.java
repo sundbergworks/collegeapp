@@ -33,12 +33,12 @@ public class CourseBusinessLogicImpl implements CourseBL{
 
     @Override
     public String updateCourse(CourseDAO courseDAO) {
-        return null;
+        return courseRepository.updateCourse(courseDAO);
     }
 
     @Override
-    public CourseDAO deleteCourse(CourseDAO courseDAO) {
-        return null;
+    public String deleteCourse(CourseDAO courseDAO) {
+        return  courseRepository.deleteCourse(courseDAO);
     }
 
     @Override
