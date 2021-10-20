@@ -29,6 +29,29 @@ public class StudentViewController {
         return "viewStudents.html";
     }
 
+    @GetMapping("/editStudent")
+    String editStudent(Model model){
+        model.addAttribute("student", new StudentDAO());
+        model.addAttribute("students",studentService.getAllStudentData());
+        return "editStudent.html";
+    }
+
+    @PostMapping("/submitEditStudent")
+    String submitEditStudent(@ModelAttribute( "student" ) StudentDAO studentDAO, Model model){
+
+        System.out.println(studentDAO);
+
+
+        // now the edit works, just need to submit the edit to the database
+
+        model.addAttribute("student", new StudentDAO());
+
+        model.addAttribute("students",studentService.getAllStudentData());
+
+
+        return "editStudent.html";
+    }
+
     @GetMapping("/newStudent")
     String newStudent(Model model){
         model.addAttribute("student", new StudentDAO());
