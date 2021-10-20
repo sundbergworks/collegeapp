@@ -97,7 +97,7 @@ public class StudentRepository {
         }
 
 
-        return "success";
+        return "Successfully inserted new student!";
 
     }
 

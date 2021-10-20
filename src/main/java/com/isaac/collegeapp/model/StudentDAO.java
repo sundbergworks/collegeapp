@@ -1,5 +1,6 @@
 package com.isaac.collegeapp.model;
 
+
 import java.sql.Date;
 
 public class StudentDAO {
@@ -8,6 +9,7 @@ public class StudentDAO {
     // Step 1)
     Integer student_id;
     String student_name;
+
     Date birthday;
     Integer student_id_number;
 
@@ -42,6 +44,8 @@ public class StudentDAO {
     public void setStudent_id_number(Integer student_id_number) {
         this.student_id_number = student_id_number;
     }
+
+
 
 
 
