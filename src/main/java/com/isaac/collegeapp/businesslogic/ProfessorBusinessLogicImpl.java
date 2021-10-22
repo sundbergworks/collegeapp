@@ -45,13 +45,15 @@ public class ProfessorBusinessLogicImpl implements ProfessorBL{
     @Override
     public String createProfessor(ProfessorDAO professorDAO) {
 
-        if(professorDAO.getHas_phd().equals(1)){
+        if(professorDAO.getHas_phd().toString().length() == 1  && professorDAO.getHas_phd().equals(1)){
 
             return professorRepository.createProfessor(professorDAO);
         } else {
 
-            return "professor must have phd, not inserting this record";
+            return "professor must have phd, not inserting this record or your integer is too long";
         }
+
+//
 
     }
 
