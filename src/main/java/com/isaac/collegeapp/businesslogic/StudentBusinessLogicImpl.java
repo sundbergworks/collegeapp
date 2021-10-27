@@ -46,7 +46,7 @@ public class StudentBusinessLogicImpl implements StudentBL{
     public String createStudent(StudentDAO studentDAO) {
 
         // students that are being created on the HTML user interface will not have a student ID by default
-        if(studentDAO.getStudent_id_number() == null){
+        if(studentDAO.getStudentIDNumber() == null){
             int min = 10000;
             int max = 100000;
 
@@ -55,7 +55,7 @@ public class StudentBusinessLogicImpl implements StudentBL{
             int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
             System.out.println(random_int);
 
-            studentDAO.setStudent_id_number(random_int);
+            studentDAO.setStudentIDNumber(random_int);
         }
 
 

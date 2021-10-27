@@ -1,6 +1,5 @@
 package com.isaac.collegeapp.repo;
 
-import com.isaac.collegeapp.model.RoomDAO;
 import com.isaac.collegeapp.model.StudentDAO;
 import org.springframework.stereotype.Component;
 
@@ -31,10 +30,10 @@ public class StudentRepository {
 
 
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, studentDAO.getStudent_name());
+            statement.setString(1, studentDAO.getStudentName());
             statement.setDate(2, studentDAO.getBirthday());
-            statement.setInt(3, studentDAO.getStudent_id_number());
-            statement.setInt(4, studentDAO.getStudent_id());
+            statement.setInt(3, studentDAO.getStudentIDNumber());
+            statement.setInt(4, studentDAO.getStudentID());
 
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
@@ -79,9 +78,9 @@ public class StudentRepository {
 
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setInt(1, existingMaxPrimaryKey +1); // this probably gonna throw a null pointer becuase on create statements we dont use a PRIMARY KEY
-            statement.setString(2, studentDAO.getStudent_name());
+            statement.setString(2, studentDAO.getStudentName());
             statement.setDate(3, studentDAO.getBirthday());
-            statement.setInt(4, studentDAO.getStudent_id_number());
+            statement.setInt(4, studentDAO.getStudentIDNumber());
 
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
@@ -141,10 +140,10 @@ public class StudentRepository {
                 // on the right hand side is the mysql column name
                 // on the left hand side is the java "Set" method
                 StudentDAO studentDAO=new StudentDAO();
-                studentDAO.setStudent_id(resultSet.getInt("student_id"));
-                studentDAO.setStudent_name(resultSet.getString("student_name"));
+                studentDAO.setStudentID(resultSet.getInt("student_id"));
+                studentDAO.setStudentName(resultSet.getString("student_name"));
                 studentDAO.setBirthday(resultSet.getDate("birthday"));
-                studentDAO.setStudent_id_number(resultSet.getInt("student_id_number"));
+                studentDAO.setStudentIDNumber(resultSet.getInt("student_id_number"));
                 studentDAOList.add(studentDAO);
             }
 

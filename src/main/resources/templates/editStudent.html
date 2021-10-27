@@ -97,10 +97,10 @@
             </thead>
             <tbody>
                 <tr th:each="student : ${students}">
-                    <td th:text="${student.student_id}"></td>
-                    <td onclick="makeInput($(this).closest('tr'), this)" th:text="${student.student_name}"></td>
+                    <td th:text="${student.studentID}"></td>
+                    <td onclick="makeInput($(this).closest('tr'), this)" th:text="${student.studentName}"></td>
                     <td onclick="makeInput($(this).closest('tr'), this)" th:text="${student.birthday}"></td>
-                    <td th:text="${student.student_id_number}"></td>
+                    <td th:text="${student.studentIDNumber}"></td>
                 </tr>
             </tbody>
         </table>
@@ -119,13 +119,13 @@
 
 
 
-                    <input id="EditValueStudentId" style="display: none;" type="text" th:field="*{student_id}" >
+                    <input id="EditValueStudentId" style="display: none;" type="text" th:field="*{studentID}" >
 
-                    <input id="EditValueStudentName" style="display: none;" type="text" th:field="*{student_name}" value="myval1">
+                    <input id="EditValueStudentName" style="display: none;" type="text" th:field="*{studentName}" value="myval1">
 
                     <input id="EditValueStudentBirthday" style="display: none;" type="date" th:field="*{birthday}" >
 
-                    <input id="EditValueStudentIdNumber" style="display: none;" type="text" th:field="*{student_id_number}">
+                    <input id="EditValueStudentIdNumber" style="display: none;" type="text" th:field="*{studentIDNumber}">
 
                     <button type="submit" onclick="triggerEdit()" style="display: none;" id="editButton" class="btn btn-secondary">Edit</button>
 

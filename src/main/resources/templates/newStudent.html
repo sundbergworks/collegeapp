@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<div th:insert="navbar.html :: navbarfragment"> </div>
 
     <div class="container">
         <h1>This is where you add a new student.</h1>
@@ -22,7 +23,7 @@
             <div class="row">
 
                 <div class="col">
-                    <input type="text" th:field="*{student_name}" class="form-control" placeholder="Student Name" aria-label="Student Name">
+                    <input type="text" th:field="*{studentName}" class="form-control" placeholder="Student Name" aria-label="Student Name">
                 </div>
 
                 <div class="col">
@@ -31,11 +32,7 @@
 
             </div>
 
-
-
             <button style="margin-top:5px;" type="submit" class="btn btn-primary">Submit</button>
-
-
 
         </form>
     </div>
@@ -53,10 +50,10 @@
             </thead>
             <tbody>
                 <tr th:each="student : ${students}">
-                    <td th:text="${student.student_id}"></td>
-                    <td th:text="${student.student_name}"></td>
+                    <td th:text="${student.studentID}"></td>
+                    <td th:text="${student.studentName}"></td>
                     <td th:text="${student.birthday}"></td>
-                    <td th:text="${student.student_id_number}"></td>
+                    <td th:text="${student.studentIDNumber}"></td>
                 </tr>
             </tbody>
         </table>

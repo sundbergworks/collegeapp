@@ -3,6 +3,7 @@ package com.isaac.collegeapp.viewcontroller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.isaac.collegeapp.model.StudentDAO;
 import com.isaac.collegeapp.service.StudentService;
+import com.isaac.collegeapp.util.ControllerHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RequestMapping("/studentView")
 @Controller
@@ -20,10 +23,19 @@ public class StudentViewController {
 
     ObjectMapper objectMapper = new ObjectMapper();
 
+    @Autowired
+    ControllerHelper controllerHelper;
+
+    @Autowired
+    HttpServletRequest httpServletRequest;
+
 
 
     @GetMapping("/viewStudents")
     String viewStudents(Model model){
+
+        controllerHelper.checkForLoggedInStudent(model, httpServletRequest); // this will check to see if a student has already loggede in
+
 
         model.addAttribute("students", studentService.getAllStudentData());
         return "viewStudents.html";
@@ -31,6 +43,9 @@ public class StudentViewController {
 
     @GetMapping("/editStudent")
     String editStudent(Model model){
+        controllerHelper.checkForLoggedInStudent(model, httpServletRequest); // this will check to see if a student has already loggede in
+
+
         model.addAttribute("student", new StudentDAO());
         model.addAttribute("students",studentService.getAllStudentData());
         return "editStudent.html";
@@ -38,6 +53,9 @@ public class StudentViewController {
 
     @PostMapping("/submitEditStudent")
     String submitEditStudent(@ModelAttribute( "student" ) StudentDAO studentDAO, Model model){
+
+        controllerHelper.checkForLoggedInStudent(model, httpServletRequest); // this will check to see if a student has already loggede in
+
 
         System.out.println(studentDAO);
 
@@ -54,6 +72,9 @@ public class StudentViewController {
 
     @GetMapping("/newStudent")
     String newStudent(Model model){
+        controllerHelper.checkForLoggedInStudent(model, httpServletRequest); // this will check to see if a student has already loggede in
+
+
         model.addAttribute("student", new StudentDAO());
         model.addAttribute("students",studentService.getAllStudentData());
         return "newStudent.html";
@@ -62,8 +83,11 @@ public class StudentViewController {
     @PostMapping ("/createStudent")
     String createStudent(@ModelAttribute( "student" ) StudentDAO studentDAO, Model model){
 
+        controllerHelper.checkForLoggedInStudent(model, httpServletRequest); // this will check to see if a student has already loggede in
+
+
         // Validation on student name
-        if(studentDAO.getStudent_name().length() > 60){
+        if(studentDAO.getStudentName().length() > 60){
             model.addAttribute("errorMessage","Student Name must be shorter than 60 characters");
         } else {
             // This code block will execute if there are no errors in the data that was inputed by the client

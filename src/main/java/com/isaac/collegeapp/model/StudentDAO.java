@@ -1,32 +1,43 @@
 package com.isaac.collegeapp.model;
 
 
+import javax.persistence.*;
 import java.sql.Date;
 
+@Entity
+@Table(name="student")
 public class StudentDAO {
 
     // These are your data attributes for the model object
     // Step 1)
-    Integer student_id;
-    String student_name;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="student_id")
+    Integer studentID;
+
+    @Column(name="student_name")
+    String studentName;
 
     Date birthday;
-    Integer student_id_number;
 
-    public Integer getStudent_id() {
-        return student_id;
+    @Column(name="student_id_number")
+    Integer studentIDNumber;
+
+    public Integer getStudentID() {
+        return studentID;
     }
 
-    public void setStudent_id(Integer student_id) {
-        this.student_id = student_id;
+    public void setStudentID(Integer studentID) {
+        this.studentID = studentID;
     }
 
-    public String getStudent_name() {
-        return student_name;
+    public String getStudentName() {
+        return studentName;
     }
 
-    public void setStudent_name(String student_name) {
-        this.student_name = student_name;
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 
     public Date getBirthday() {
@@ -37,12 +48,12 @@ public class StudentDAO {
         this.birthday = birthday;
     }
 
-    public Integer getStudent_id_number() {
-        return student_id_number;
+    public Integer getStudentIDNumber() {
+        return studentIDNumber;
     }
 
-    public void setStudent_id_number(Integer student_id_number) {
-        this.student_id_number = student_id_number;
+    public void setStudentIDNumber(Integer studentIDNumber) {
+        this.studentIDNumber = studentIDNumber;
     }
 
 
