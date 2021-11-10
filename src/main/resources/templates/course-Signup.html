@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Sign Up</title>
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+
+<div th:insert="navbar.html :: navbarfragment"> </div>
+
+
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Course Name</th>
+            <th scope="col">Creds</th>
+
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="course : ${courses}">
+                <td th:text="${course.course_id}"></td>
+                <td th:text="${course.course_name}"></td>
+                <td th:text="${course.creds}"></td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+<div class="container">
+    <form th:action="@{/courseView/submitCourse}" th:object="${course}" method="post">
+
+
+
+
+
+
+        <select class="form-select form-select-lg mb-3" th:field="*{course_id}">
+            <option th:each="course : ${courses}" th:value="${course.course_id}" th:text="${course.course_name}">
+            </option>
+        </select>
+
+        <button style="margin-top:5px;" type="submit" class="btn btn-warning">Add Course</button>
+
+    </form>
+
+
+
+
+        <table>
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Course Name</th>
+                <th scope="col">Creds</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="inputcourse, itemStat : *{studentscourses}">
+                <td><input th:field="*{studentscourses[__${itemStat.index}__].course_id}" /></td>
+                <td><input th:field="*{studentscourses[__${itemStat.index}__].course_name}" /></td>
+                <td><input th:field="*{studentscourses[__${itemStat.index}__].creds}" /></td>
+
+
+            </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+
+</div>
+
+
+
+<!--course (course_id INT NOT NULL,-->
+<!--room_id int NOT NULL,-->
+<!--course_name VARCHAR (225),-->
+<!--creds INT,-->
+<!--course_id_desc VARCHAR (225),-->
+
+</body>
+</html>

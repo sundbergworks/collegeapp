@@ -1,7 +1,6 @@
 package com.isaac.collegeapp.repo;
 
 import com.isaac.collegeapp.model.StudentCourseDAO;
-import com.isaac.collegeapp.model.StudentCourseDAO;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
@@ -29,9 +28,9 @@ public class StudentCourseRepository {
 //            student_id INT,
 
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setInt(1, studentcourseDAO.getCourse_id());
-            statement.setInt(2, studentcourseDAO.getStudent_id());
-            statement.setInt(3, studentcourseDAO.getStudent_course_id());
+            statement.setInt(1, studentcourseDAO.getCourseId());
+            statement.setInt(2, studentcourseDAO.getStudentId());
+            statement.setInt(3, studentcourseDAO.getStudentCourseId());
 
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
@@ -75,8 +74,8 @@ public class StudentCourseRepository {
 
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setInt(1, existingMaxPrimaryKey +1); // this probably gonna throw a null pointer becuase on create statements we dont use a PRIMARY KEY
-            statement.setInt(2, studentcourseDAO.getCourse_id());
-            statement.setInt(3, studentcourseDAO.getStudent_id());
+            statement.setInt(2, studentcourseDAO.getCourseId());
+            statement.setInt(3, studentcourseDAO.getStudentId());
 
 
             int rowsInserted = statement.executeUpdate();
@@ -134,9 +133,9 @@ public class StudentCourseRepository {
             while(resultSet.next()) {
 
                 StudentCourseDAO studentcourseDAO=new StudentCourseDAO();
-                studentcourseDAO.setStudent_course_id(resultSet.getInt("student_course_id"));
-                studentcourseDAO.setCourse_id(resultSet.getInt("course_id"));
-                studentcourseDAO.setStudent_id(resultSet.getInt("student_id"));
+                studentcourseDAO.setStudentCourseId(resultSet.getInt("student_course_id"));
+                studentcourseDAO.setCourseId(resultSet.getInt("course_id"));
+                studentcourseDAO.setStudentId(resultSet.getInt("student_id"));
                 studentcourseDAOList.add(studentcourseDAO);
             }
         } catch (SQLException ex ) {

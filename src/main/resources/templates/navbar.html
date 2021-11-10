@@ -16,9 +16,15 @@
                         <a class="nav-link" href="/api/studentView/newStudent">Create Student</a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="/api/courseView/viewCourseSignUp">Course Sign Up</a>
+                    </li>
+
                     <li class="nav-item" >
                         <p th:if="${loggedInUserName}" th:text="${loggedInUserName}"></p>
                     </li>
+
+
 
 
                         <form th:action="@{/home/logout}" method="post">

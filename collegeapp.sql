@@ -56,7 +56,7 @@ CREATE TABLE professorcourse ( professor_course_id INT NOT NULL,
                                FOREIGN KEY (professor_id)REFERENCES professor(professor_id),
                                FOREIGN KEY (course_id)REFERENCES course(course_id))
 ;
-CREATE TABLE studentcourse ( student_course_id INT NOT NULL,
+CREATE TABLE studentcourse ( student_course_id INT NOT NULL AUTO_INCREMENT,
                              course_id INT,
                              student_id INT,
                              PRIMARY KEY (student_course_id) ,

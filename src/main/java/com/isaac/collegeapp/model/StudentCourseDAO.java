@@ -1,40 +1,53 @@
 package com.isaac.collegeapp.model;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="studentcourse")
 public class StudentCourseDAO {
 
 
     // These are your data attributes for the model object
     // Step 1)
-    Integer student_course_id;
-    Integer student_id;
-    Integer course_id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="student_course_id")
+    Integer studentCourseId;
+
+    @Column(name="student_id")
+    Integer studentId;
+
+    @Column(name="course_id")
+    Integer courseId;
 
     // below here are the getters and setters
 
 
 
-    public Integer getStudent_course_id() {
-        return student_course_id;
+    public Integer getStudentCourseId() {
+        return studentCourseId;
     }
 
-    public void setStudent_course_id(Integer student_course_id) {
-        this.student_course_id = student_course_id;
+    public void setStudentCourseId(Integer studentCourseId) {
+        this.studentCourseId = studentCourseId;
     }
 
-    public Integer getStudent_id() {
-        return student_id;
+    public Integer getStudentId() {
+        return studentId;
     }
 
-    public void setStudent_id(Integer student_id) {
-        this.student_id = student_id;
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
     }
 
-    public Integer getCourse_id() {
-        return course_id;
+    public Integer getCourseId() {
+        return courseId;
     }
 
-    public void setCourse_id(Integer course_id) {
-        this.course_id = course_id;
+    public void setCourseId(Integer courseId) {
+        this.courseId = courseId;
     }
 
 
