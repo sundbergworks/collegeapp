@@ -1,7 +1,6 @@
 package com.isaac.collegeapp.repo;
 
 import com.isaac.collegeapp.model.CourseDAO;
-import com.isaac.collegeapp.model.CourseDAO;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
@@ -24,7 +23,7 @@ public class CourseRepository {
 //            // execute sql query to get the max id so we can increment primary key
             String selectbooks = "SELECT * FROM book WHERE course_id = ?";
             PreparedStatement selectBookStatement = conn.prepareStatement(selectbooks);
-            selectBookStatement.setInt(1, courseDAO.getCourse_id());
+            selectBookStatement.setInt(1, courseDAO.getCourseId());
             ResultSet primaryKeyResult = selectBookStatement.executeQuery();
 
 
@@ -47,7 +46,7 @@ public class CourseRepository {
 
 
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setInt(1, courseDAO.getCourse_id());
+            statement.setInt(1, courseDAO.getCourseId());
 
 
             int rowsInserted = statement.executeUpdate();
@@ -85,11 +84,11 @@ public class CourseRepository {
 
 
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setInt(1,  courseDAO.getRoom_id());
-            statement.setString(2, courseDAO.getCourse_name());
+            statement.setInt(1,  courseDAO.getRoomId());
+            statement.setString(2, courseDAO.getCourseName());
             statement.setInt(3, courseDAO.getCreds());
-            statement.setString(4, courseDAO.getCourse_id_desc());
-            statement.setInt(5, courseDAO.getCourse_id());
+            statement.setString(4, courseDAO.getCourseIdDesc());
+            statement.setInt(5, courseDAO.getCourseId());
 
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
@@ -136,10 +135,10 @@ public class CourseRepository {
 
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setInt(1, existingMaxPrimaryKey +1); // this probably gonna throw a null pointer becuase on create statements we dont use a PRIMARY KEY
-            statement.setInt(2, courseDAO.getCourse_id());
-            statement.setString(3, courseDAO.getCourse_name());
+            statement.setInt(2, courseDAO.getCourseId());
+            statement.setString(3, courseDAO.getCourseName());
             statement.setInt(4, courseDAO.getCreds());
-            statement.setString(4, courseDAO.getCourse_id_desc());
+            statement.setString(4, courseDAO.getCourseIdDesc());
 
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
@@ -194,9 +193,9 @@ public class CourseRepository {
             while(resultSet.next()) {
 
                 CourseDAO courseDAO=new CourseDAO();
-                courseDAO.setCourse_id(resultSet.getInt("course_id"));
-                courseDAO.setCourse_name(resultSet.getString("course_name"));
-                courseDAO.setCourse_id(resultSet.getInt("course_id"));
+                courseDAO.setCourseId(resultSet.getInt("course_id"));
+                courseDAO.setCourseName(resultSet.getString("course_name"));
+                courseDAO.setCourseId(resultSet.getInt("course_id"));
                 courseDAO.setCreds(resultSet.getInt("creds"));
                 courseDAOList.add(courseDAO);
             }

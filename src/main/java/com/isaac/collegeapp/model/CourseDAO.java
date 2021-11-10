@@ -1,7 +1,10 @@
 package com.isaac.collegeapp.model;
 
-import java.sql.Date;
+import javax.persistence.*;
 
+
+@Entity
+@Table(name="course")
 public class CourseDAO {
 
 
@@ -9,35 +12,41 @@ public class CourseDAO {
 
     // These are your data attributes for the model object
     // Step 1)
-    Integer course_id;
-    Integer room_id;
-    String course_name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="course_id")
+    Integer courseId;
+    @Column(name="room_id")
+    Integer roomId;
+    @Column(name="course_name")
+    String courseName;
     Integer creds;
-    String course_id_desc;
+    @Column(name="course_id_desc")
+    String courseIdDesc;
 
 
-    public Integer getCourse_id() {
-        return course_id;
+    public Integer getCourseId() {
+        return courseId;
     }
 
-    public void setCourse_id(Integer course_id) {
-        this.course_id = course_id;
+    public void setCourseId(Integer courseId) {
+        this.courseId = courseId;
     }
 
-    public Integer getRoom_id() {
-        return room_id;
+    public Integer getRoomId() {
+        return roomId;
     }
 
-    public void setRoom_id(Integer room_id) {
-        this.room_id = room_id;
+    public void setRoomId(Integer roomId) {
+        this.roomId = roomId;
     }
 
-    public String getCourse_name() {
-        return course_name;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setCourse_name(String course_name) {
-        this.course_name = course_name;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
     public Integer getCreds() {
@@ -48,12 +57,12 @@ public class CourseDAO {
         this.creds = creds;
     }
 
-    public String getCourse_id_desc() {
-        return course_id_desc;
+    public String getCourseIdDesc() {
+        return courseIdDesc;
     }
 
-    public void setCourse_id_desc(String course_id_desc) {
-        this.course_id_desc = course_id_desc;
+    public void setCourseIdDesc(String courseIdDesc) {
+        this.courseIdDesc = courseIdDesc;
     }
 
 

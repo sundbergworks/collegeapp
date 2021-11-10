@@ -31,8 +31,8 @@
         </thead>
         <tbody>
             <tr th:each="course : ${courses}">
-                <td th:text="${course.course_id}"></td>
-                <td th:text="${course.course_name}"></td>
+                <td th:text="${course.courseId}"></td>
+                <td th:text="${course.courseName}"></td>
                 <td th:text="${course.creds}"></td>
 
             </tr>
@@ -50,8 +50,8 @@
 
 
 
-        <select class="form-select form-select-lg mb-3" th:field="*{course_id}">
-            <option th:each="course : ${courses}" th:value="${course.course_id}" th:text="${course.course_name}">
+        <select class="form-select form-select-lg mb-3" th:field="*{courseId}">
+            <option th:each="course : ${courses}" th:value="${course.courseId}" th:text="${course.courseName}">
             </option>
         </select>
 
@@ -62,7 +62,7 @@
 
 
 
-        <table>
+        <table class="table">
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -71,13 +71,18 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="inputcourse, itemStat : *{studentscourses}">
-                <td><input th:field="*{studentscourses[__${itemStat.index}__].course_id}" /></td>
-                <td><input th:field="*{studentscourses[__${itemStat.index}__].course_name}" /></td>
-                <td><input th:field="*{studentscourses[__${itemStat.index}__].creds}" /></td>
 
 
-            </tr>
+
+            <th:block th:each = "course : ${studentscourses}">
+                    <td th:text="${course.courseId}"></td>
+                    <td th:text="${course.courseName}"></td>
+                    <td th:text="${course.creds}"></td>
+                </tr>
+            </th:block>
+
+
+
             </tbody>
         </table>
 
@@ -90,11 +95,11 @@
 
 
 
-<!--course (course_id INT NOT NULL,-->
+<!--course (courseId INT NOT NULL,-->
 <!--room_id int NOT NULL,-->
-<!--course_name VARCHAR (225),-->
+<!--courseName VARCHAR (225),-->
 <!--creds INT,-->
-<!--course_id_desc VARCHAR (225),-->
+<!--courseId_desc VARCHAR (225),-->
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.isaac.collegeapp.viewcontroller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.isaac.collegeapp.jparepo.CourseJpaRepo;
 import com.isaac.collegeapp.jparepo.StudentCourseJpaRepo;
 import com.isaac.collegeapp.jparepo.StudentJpaRepo;
 import com.isaac.collegeapp.model.CourseDAO;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.List;
 
 @RequestMapping("/courseView")
 @Controller
@@ -37,6 +39,9 @@ public class CourseViewController {
 
     @Autowired
     StudentJpaRepo studentJpaRepo;
+
+    @Autowired
+    CourseJpaRepo courseJpaRepo;
 
 
 
@@ -84,7 +89,7 @@ public class CourseViewController {
        StudentDAO studentDAO = studentJpaRepo.findByStudentIDNumber(Integer.valueOf(studentid));
 
         // get course id
-        int course_id = course.getCourse_id();
+        int course_id = course.getCourseId();
 
         // create student course object and hydrate with above ( put data inside object)
 
@@ -98,9 +103,20 @@ public class CourseViewController {
 
         // run query on student course table to find get all entries for student id
 
-        // get all courses from database
+
 
         // loop through course list abd make new list of only the studentscourses and bind to student courses object
+
+
+        model.addAttribute("studentscourses", courseService.getCoursesForStudent(studentDAO));
+        model.addAttribute("courses", courseService.getAllCourseData());
+        model.addAttribute("course", new CourseDAO());
+
+
+
+
+
+
 
         return "course-Signup.html";
 
